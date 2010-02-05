@@ -1,0 +1,16 @@
+To run this example:
+
+1. Install simple build tool (sbt)
+http://code.google.com/p/simple-build-tool/
+
+2. Install git, if you haven't yet.
+
+3. Clone this example.
+
+4. Add scmongo.jar to the /lib folder in the project's top directory.
+
+5. In the projects' top directory, run sbt
+
+6. sbt>update
+
+7. sbt>run
