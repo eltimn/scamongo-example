@@ -33,26 +33,26 @@ object Main {
 		p.save
 
 		//val pFromDb = Person.find(p._id)
-import net.liftweb.json._
-import net.liftweb.json.JsonAST.JObject
-import net.liftweb.json.JsonDSL._
-implicit val formats = DefaultFormats.lossless
-val json = JsonParser.parse("""
-{ "name": "joe",
-	"children": [
-		{
-		  "name": "Mary",
-		  "age": 5
-		},
-		{
-		  "name": "Mazy",
-		  "age": 3
+		import net.liftweb.json._
+		import net.liftweb.json.JsonAST.JObject
+		import net.liftweb.json.JsonDSL._
+		implicit val formats = DefaultFormats.lossless
+		val json = JsonParser.parse("""
+		{ "name": "joe",
+			"children": [
+				{
+					"name": "Mary",
+					"age": 5
+				},
+				{
+					"name": "Mazy",
+					"age": 3
+				}
+			]
 		}
-	]
-}
-""").asInstanceOf[JObject]
-MongoDB.useCollection("myCollection")( coll => {
-	coll.save(JObjectParser.parse(json))
-})
+		""").asInstanceOf[JObject]
+		MongoDB.useCollection("myCollection")( coll => {
+			coll.save(JObjectParser.parse(json))
+		})
 	}
 }
