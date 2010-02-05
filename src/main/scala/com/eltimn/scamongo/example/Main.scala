@@ -36,7 +36,9 @@ object Main {
 		import net.liftweb.json._
 		import net.liftweb.json.JsonAST.JObject
 		import net.liftweb.json.JsonDSL._
+
 		implicit val formats = DefaultFormats.lossless
+
 		val json = JsonParser.parse("""
 		{ "name": "joe",
 			"children": [
@@ -51,6 +53,7 @@ object Main {
 			]
 		}
 		""").asInstanceOf[JObject]
+
 		MongoDB.useCollection("myCollection")( coll => {
 			coll.save(JObjectParser.parse(json))
 		})
